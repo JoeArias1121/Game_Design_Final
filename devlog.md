@@ -1,8 +1,3 @@
-# Fall 2024 - Intro to Game Design _@ SUNY New Paltz_
-* Name: Joseph Arias
-* [Trello Board](https://trello.com/b/gxn5B77P/game-design-final)
-* [Proposal]()
-
 ### 2024-10-01 - 2hr: I made my character with movement and added a tile map to the game
 * I forgot how to make a character so I went back to the Brackey's video to make mine with movement and give it animation
 * I added world boundaries on the left and right to contain the game and then gave it sprites

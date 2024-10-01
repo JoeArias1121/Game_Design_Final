@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://brxfawvccru6q"]
+[gd_scene load_steps=5 format=3 uid="uid://brxfawvccru6q"]
 
-[ext_resource type="Texture2D" uid="uid://lrxc4swfgjbn" path="res://assets/world_tileset.png" id="1_ixk2w"]
+[ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="1_ixk2w"]
+[ext_resource type="Script" path="res://scenes/plat_1.gd" id="2_wvku8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8bx3"]
 texture = ExtResource("1_ixk2w")
@@ -176,3 +177,4 @@ sources/0 = SubResource("TileSetAtlasSource_d8bx3")
 tile_set = SubResource("TileSet_kwttq")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65529, 393216, 2, -3, 393216, 2, -2, 393216, 2, -1, 393216, 2, -65536, 393216, 2, -65535, 393216, 2, -65531, 393216, 2, -65530, 393216, 2, -6, 393216, 2, -7, 393216, 2, -8, 393216, 2)
+script = ExtResource("2_wvku8")
