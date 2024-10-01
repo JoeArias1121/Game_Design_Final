@@ -4,5 +4,6 @@
 /build
 *.zip
 *.url
+*.import
 /imported/
 /exported/
