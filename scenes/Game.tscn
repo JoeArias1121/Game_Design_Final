@@ -179,7 +179,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mp7ls")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdlie"]
-size = Vector2(287, 69)
+size = Vector2(252, 69)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tskeu")
@@ -230,7 +230,7 @@ position = Vector2(0, 81)
 script = ExtResource("8_e5onq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0.5, 35.5)
+position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_fdlie")
 
 [node name="platforms" type="Node" parent="."]
@@ -239,13 +239,13 @@ shape = SubResource("RectangleShape2D_fdlie")
 position = Vector2(0, 16)
 
 [node name="plat2" parent="platforms" instance=ExtResource("4_qukyp")]
-position = Vector2(0, -42)
+position = Vector2(0, -48)
 
 [node name="plat3" parent="platforms" instance=ExtResource("5_j5g4q")]
-position = Vector2(0, -89)
+position = Vector2(0, -111)
 
 [node name="plat4" parent="platforms" instance=ExtResource("8_pv563")]
-position = Vector2(0, -137)
+position = Vector2(0, -175)
 
 [connection signal="area_entered" from="Killzone" to="Killzone" method="_on_area_entered"]
 [connection signal="area_exited" from="Killzone" to="Killzone" method="_on_area_exited"]

@@ -9,6 +9,7 @@ var platforms = [p1,p2,p3,p4]
 
 func genPlat() -> void:
 	var plat = platforms[0].instance()
+	plat.position = Vector2(plat.position.x, -175)
 	add_child(plat)
 	pass
 # Called when the node enters the scene tree for the first time.
