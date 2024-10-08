@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -275.0
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 
 func _physics_process(delta: float) -> void:
@@ -17,6 +19,13 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
+	
+	# Flip the sprite
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:

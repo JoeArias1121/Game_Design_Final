@@ -43,13 +43,15 @@ animations = [{
 size = Vector2(15, 23)
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(2, 0)
+collision_layer = 2
 script = ExtResource("1_f3scj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -21)
 sprite_frames = SubResource("SpriteFrames_vc7ty")
 autoplay = "default"
-frame_progress = 0.839386
+frame_progress = 0.427773
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, -11.5)
