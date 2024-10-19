@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
+const SPEED = 175.0
 const JUMP_VELOCITY = -275.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+var toggle = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,8 +24,14 @@ func _physics_process(delta: float) -> void:
 	# Flip the sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
+		if animated_sprite.flip_h != toggle:
+			animated_sprite.position.x += 10
+			toggle = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		if animated_sprite.flip_h != toggle:
+			animated_sprite.position.x -= 10
+			toggle = true
 	
 	if direction:
 		velocity.x = direction * SPEED

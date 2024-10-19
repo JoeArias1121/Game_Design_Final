@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7otj3lqfk7rw"]
+[gd_scene load_steps=6 format=3 uid="uid://bar2kq1rsl82y"]
 
-[ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="1_2kqcw"]
-[ext_resource type="Script" path="res://scenes/plat_1.gd" id="2_gcfe0"]
+[ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="1_j1prx"]
+[ext_resource type="Script" path="res://scenes/plat_1.gd" id="2_rhyfw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8bx3"]
-texture = ExtResource("1_2kqcw")
+texture = ExtResource("1_j1prx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -64,6 +64,7 @@ texture = ExtResource("1_2kqcw")
 4:2/0 = 0
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:2/0 = 0
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:2/0 = 0
@@ -172,17 +173,17 @@ texture = ExtResource("1_2kqcw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_d8bx3")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lobmy"]
-size = Vector2(542, 15)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stv2j"]
+size = Vector2(543, 15)
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_kwttq")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65529, 393216, 2, -65531, 393216, 2, -65530, 393216, 2, -6, 393216, 2, -7, 393216, 2, -8, 393216, 2, -65528, 393216, 2, -65527, 393216, 2, -65526, 393216, 2, -65525, 393216, 2, -65524, 393216, 2, -65523, 393216, 2, -65522, 393216, 2, -65521, 393216, 2, -65520, 393216, 2, -9, 393216, 2, -10, 393216, 2, -11, 393216, 2, -12, 393216, 2, -13, 393216, 2, -14, 393216, 2, -15, 393216, 2, -16, 393216, 2, -17, 393216, 2, -1, 393216, 2, -65536, 393216, 2)
-script = ExtResource("2_gcfe0")
+layer_0/tile_data = PackedInt32Array(-65529, 393216, 2, -3, 393216, 2, -2, 393216, 2, -1, 393216, 2, -65536, 393216, 2, -65535, 393216, 2, -65531, 393216, 2, -65530, 393216, 2, -4, 393216, 2, -5, 393216, 2, -65528, 393216, 2, -6, 393216, 2, -7, 393216, 2, -8, 393216, 2, -9, 393216, 2, -10, 393216, 2, -11, 393216, 2, -12, 393216, 2, -13, 393216, 2, -14, 393216, 2, -15, 393216, 2, -16, 393216, 2, -17, 393216, 2, -65534, 393216, 2, -65533, 393216, 2, -65532, 393216, 2)
+script = ExtResource("2_rhyfw")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -7.5)
-shape = SubResource("RectangleShape2D_lobmy")
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_stv2j")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dehtm5kxffydu"]
+[gd_scene load_steps=19 format=3 uid="uid://dehtm5kxffydu"]
 
 [ext_resource type="PackedScene" uid="uid://b578o30313ij5" path="res://scenes/Player.tscn" id="1_irlgg"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_tskeu"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://6uyc45t8in1w" path="res://scenes/plat3.tscn" id="5_j5g4q"]
 [ext_resource type="Script" path="res://scenes/killzone.gd" id="8_e5onq"]
 [ext_resource type="PackedScene" uid="uid://bo07368o8586a" path="res://scenes/plat4.tscn" id="8_pv563"]
+[ext_resource type="PackedScene" uid="uid://bx8jtyx2wv14n" path="res://scenes/plat5.tscn" id="10_jbgvg"]
+[ext_resource type="PackedScene" uid="uid://b23crl4m66vgy" path="res://scenes/plat6.tscn" id="11_x2r7y"]
+[ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_25lvk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -179,7 +182,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mp7ls")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdlie"]
-size = Vector2(252, 69)
+size = Vector2(537, 69)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tskeu")
@@ -196,11 +199,11 @@ text = "Lvl. 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_irlgg")]
-position = Vector2(0, -1)
+position = Vector2(0, -111)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -31)
-zoom = Vector2(4, 4)
+position = Vector2(0, -112)
+zoom = Vector2(2, 2)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -209,43 +212,55 @@ position = Vector2(0, 191)
 shape = SubResource("WorldBoundaryShape2D_d4l8v")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(128, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(144, 8)
 shape = SubResource("WorldBoundaryShape2D_8vm8f")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-171, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-144, -3)
+position = Vector2(-103, -3)
 shape = SubResource("WorldBoundaryShape2D_t6dod")
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-145, -29)
 tile_set = SubResource("TileSet_u120u")
 format = 2
-layer_0/tile_data = PackedInt32Array(262152, 524288, 0, 196616, 524288, 0, 131080, 524288, 0, 65544, 524288, 0, 8, 524288, 0, -65528, 524288, 0, -131064, 524288, 0, -196600, 524288, 0, -262136, 524288, 0, -327672, 524288, 0, -262153, 524288, 0, -196617, 524288, 0, -131081, 524288, 0, -65545, 524288, 0, -9, 524288, 0, 65527, 524288, 0, 131063, 524288, 0, 196599, 524288, 0, 262135, 524288, 0, 327671, 524288, 0, -393208, 524288, 0, -458744, 524288, 0, -524280, 524288, 0, -327689, 524288, 0, -393225, 524288, 0, -458761, 524288, 0)
+layer_0/tile_data = PackedInt32Array(-262153, 524288, 0, -196617, 524288, 0, -131081, 524288, 0, -65545, 524288, 0, -9, 524288, 0, 65527, 524288, 0, 131063, 524288, 0, 196599, 524288, 0, 262135, 524288, 0, 327671, 524288, 0, -327689, 524288, 0, -393225, 524288, 0, -458761, 524288, 0, -524297, 524288, 0, -589833, 524288, 0, -655369, 524288, 0, -720905, 524288, 0, -786441, 524288, 0, -851977, 524288, 0, -917513, 524288, 0, -983049, 524288, 0, -1048585, 524288, 0, -1114121, 524288, 0, -1179657, 524288, 0, -1245193, 524288, 0, -1310729, 524288, 0, 262170, 524288, 0, 196634, 524288, 0, 131098, 524288, 0, 65562, 524288, 0, 26, 524288, 0, -65510, 524288, 0, -262118, 524288, 0, -196582, 524288, 0, -131046, 524288, 0, -327654, 524288, 0, -393190, 524288, 0, -458726, 524288, 0, -524262, 524288, 0, -589798, 524288, 0, -655334, 524288, 0, -720870, 524288, 0, -786406, 524288, 0, -851942, 524288, 0, -917478, 524288, 0, -983014, 524288, 0, -1048550, 524288, 0, -1114086, 524288, 0, -1179622, 524288, 0, -1245158, 524288, 0, -1310694, 524288, 0, -1376230, 524288, 0, 393207, 524288, 0, 327706, 524288, 0, 393242, 524288, 0, 458743, 524288, 0, 524279, 524288, 0, 458778, 524288, 0)
 
 [node name="Killzone" type="Area2D" parent="."]
-position = Vector2(0, 81)
+position = Vector2(0, 100)
 script = ExtResource("8_e5onq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 19)
+position = Vector2(-0.5, 19)
 shape = SubResource("RectangleShape2D_fdlie")
 
 [node name="platforms" type="Node" parent="."]
 
 [node name="plat1" parent="platforms" instance=ExtResource("3_25bk4")]
-position = Vector2(0, 16)
+position = Vector2(0, 35)
 
 [node name="plat2" parent="platforms" instance=ExtResource("4_qukyp")]
-position = Vector2(0, -48)
+position = Vector2(0, -30)
 
 [node name="plat3" parent="platforms" instance=ExtResource("5_j5g4q")]
-position = Vector2(0, -111)
+position = Vector2(0, -94)
 
 [node name="plat4" parent="platforms" instance=ExtResource("8_pv563")]
-position = Vector2(0, -175)
+position = Vector2(0, -157)
+
+[node name="plat5" parent="platforms" instance=ExtResource("10_jbgvg")]
+position = Vector2(0, -221)
+
+[node name="plat6" parent="platforms" instance=ExtResource("11_x2r7y")]
+position = Vector2(0, -285)
+
+[node name="plat7" parent="platforms" instance=ExtResource("12_25lvk")]
+position = Vector2(0, -348)
 
 [connection signal="area_entered" from="Killzone" to="Killzone" method="_on_area_entered"]
 [connection signal="area_exited" from="Killzone" to="Killzone" method="_on_area_exited"]

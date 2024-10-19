@@ -1,3 +1,9 @@
+### 2024-10-12 - 5hr: Fixed bugs in code and scenes
+* I created more platforms and scaled up the map to make it more playable
+* Added feature where platforms now randomly generate
+* Fixed bug where where platforms were not generating in the right location
+* TODO: Make sure platforms are generated and positioned in the right place
+
 ### 2024-10-07 - 2.5hr: Fixed bugs in code and scenes
 * Fixed a bug where the platforms were separated from their 2D collision shape
 * Added the feature where if a platform get deleted another one gets generated

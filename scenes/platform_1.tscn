@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjrypih0s2wde"]
-
-[ext_resource type="PackedScene" uid="uid://brxfawvccru6q" path="res://scenes/plat1.tscn" id="1_m7s6o"]
-
-[node name="platform1" type="Area2D"]
-
-[node name="plat1" parent="." instance=ExtResource("1_m7s6o")]

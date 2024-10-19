@@ -48,7 +48,7 @@ collision_layer = 2
 script = ExtResource("1_f3scj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, -21)
+position = Vector2(2, -21)
 sprite_frames = SubResource("SpriteFrames_vc7ty")
 autoplay = "default"
 frame_progress = 0.427773
