@@ -18,3 +18,7 @@ func _ready() -> void:
 
 func _on_killzone_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_player_kill_zone_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbu3af2fyshh2"]
+
+[ext_resource type="Script" path="res://scenes/death_screen.gd" id="1_a6rxg"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+script = ExtResource("1_a6rxg")
+
+[node name="end_of_game_screen" type="Node2D" parent="."]
+
+[node name="RestartButton" type="Button" parent="end_of_game_screen"]
+offset_left = 487.0
+offset_top = 422.0
+offset_right = 655.0
+offset_bottom = 475.0
+text = "Restart"
+
+[node name="Retry" type="Button" parent="end_of_game_screen"]
+offset_left = 485.0
+offset_top = 354.0
+offset_right = 653.0
+offset_bottom = 407.0
+text = "Retry"
+
+[node name="end_game_scoreDisplay" type="Node2D" parent="end_of_game_screen"]
+position = Vector2(189, 215)
+
+[node name="Label" type="Label" parent="end_of_game_screen/end_game_scoreDisplay"]
+texture_filter = 1
+offset_left = 257.0
+offset_top = -9.0
+offset_right = 309.0
+offset_bottom = 17.0
+scale = Vector2(5, 5)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 54.0
+offset_right = 278.0
+offset_bottom = 77.0
+scale = Vector2(5, 5)
+text = "You died! Your score was:"
+
+[connection signal="pressed" from="end_of_game_screen/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="end_of_game_screen/Retry" to="." method="_on_retry_pressed"]

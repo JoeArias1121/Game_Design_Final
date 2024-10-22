@@ -33,6 +33,14 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.position.x -= 10
 			toggle = true
 	
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite.play("idle")
+		else:
+			animated_sprite.play("run")
+	else:
+		animated_sprite.play("jump")
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:

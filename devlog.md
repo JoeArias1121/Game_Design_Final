@@ -1,3 +1,10 @@
+### 2024-10-19 - 4hr: Fixed bugs in code and scenes
+* I created ui screens to make the game more user friendly
+* Added other game scene where there is a ghost as a character
+* Updated the sprite animations to capture more movement
+* Worked on scripts to connect different elements of the game
+* TODO: Make the score universal so the user can see their score even in the ui screens
+
 ### 2024-10-12 - 5hr: Fixed bugs in code and scenes
 * I created more platforms and scaled up the map to make it more playable
 * Added feature where platforms now randomly generate

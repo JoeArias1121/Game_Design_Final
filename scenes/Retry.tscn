@@ -1,18 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://dehtm5kxffydu"]
+[gd_scene load_steps=21 format=3 uid="uid://e04poe4sb3a2"]
 
-[ext_resource type="PackedScene" uid="uid://b578o30313ij5" path="res://scenes/Player.tscn" id="1_irlgg"]
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_tskeu"]
-[ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="2_ga81e"]
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_nbm6m"]
-[ext_resource type="PackedScene" uid="uid://brxfawvccru6q" path="res://scenes/plat1.tscn" id="3_25bk4"]
-[ext_resource type="PackedScene" uid="uid://c7otj3lqfk7rw" path="res://scenes/plat2.tscn" id="4_qukyp"]
-[ext_resource type="PackedScene" uid="uid://6uyc45t8in1w" path="res://scenes/plat3.tscn" id="5_j5g4q"]
-[ext_resource type="Script" path="res://scenes/killzone.gd" id="8_e5onq"]
-[ext_resource type="PackedScene" uid="uid://bo07368o8586a" path="res://scenes/plat4.tscn" id="8_pv563"]
-[ext_resource type="PackedScene" uid="uid://bx8jtyx2wv14n" path="res://scenes/plat5.tscn" id="10_jbgvg"]
-[ext_resource type="PackedScene" uid="uid://b23crl4m66vgy" path="res://scenes/plat6.tscn" id="11_x2r7y"]
-[ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_25lvk"]
-[ext_resource type="Script" path="res://scenes/player_kill_zone.gd" id="13_l0cwt"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_3w8d4"]
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_4nbyl"]
+[ext_resource type="PackedScene" uid="uid://d2ruoxbs8opce" path="res://scenes/Ghost.tscn" id="3_fv0rl"]
+[ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="4_qfbo8"]
+[ext_resource type="Script" path="res://scenes/killzone.gd" id="5_cae3a"]
+[ext_resource type="PackedScene" uid="uid://brxfawvccru6q" path="res://scenes/plat1.tscn" id="6_3h4jt"]
+[ext_resource type="PackedScene" uid="uid://c7otj3lqfk7rw" path="res://scenes/plat2.tscn" id="7_p7ll8"]
+[ext_resource type="PackedScene" uid="uid://6uyc45t8in1w" path="res://scenes/plat3.tscn" id="8_01v6n"]
+[ext_resource type="PackedScene" uid="uid://bo07368o8586a" path="res://scenes/plat4.tscn" id="9_ci2wb"]
+[ext_resource type="PackedScene" uid="uid://bx8jtyx2wv14n" path="res://scenes/plat5.tscn" id="10_w36e5"]
+[ext_resource type="PackedScene" uid="uid://b23crl4m66vgy" path="res://scenes/plat6.tscn" id="11_w6k5w"]
+[ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_uf30i"]
+[ext_resource type="Script" path="res://scenes/ghost_kill_zone.gd" id="13_e7thm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -24,7 +24,7 @@ normal = Vector2(-1, 0)
 normal = Vector2(1, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mp7ls"]
-texture = ExtResource("2_ga81e")
+texture = ExtResource("4_qfbo8")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -189,10 +189,10 @@ size = Vector2(537, 69)
 size = Vector2(541, 14)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_tskeu")
+script = ExtResource("1_3w8d4")
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("2_nbm6m")
+script = ExtResource("2_4nbyl")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
 offset_left = -63.0
@@ -202,12 +202,12 @@ offset_bottom = -5.0
 text = "Lvl. 0"
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("1_irlgg")]
-position = Vector2(0, -111)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -112)
 zoom = Vector2(2, 2)
+
+[node name="Ghost" parent="." instance=ExtResource("3_fv0rl")]
+position = Vector2(4, -112)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -237,7 +237,7 @@ layer_0/tile_data = PackedInt32Array(-262153, 524288, 0, -196617, 524288, 0, -13
 
 [node name="Killzone" type="Area2D" parent="."]
 position = Vector2(0, 100)
-script = ExtResource("8_e5onq")
+script = ExtResource("5_cae3a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(-0.5, 19)
@@ -245,31 +245,31 @@ shape = SubResource("RectangleShape2D_fdlie")
 
 [node name="platforms" type="Node" parent="."]
 
-[node name="plat1" parent="platforms" instance=ExtResource("3_25bk4")]
+[node name="plat1" parent="platforms" instance=ExtResource("6_3h4jt")]
 position = Vector2(0, 35)
 
-[node name="plat2" parent="platforms" instance=ExtResource("4_qukyp")]
+[node name="plat2" parent="platforms" instance=ExtResource("7_p7ll8")]
 position = Vector2(0, -30)
 
-[node name="plat3" parent="platforms" instance=ExtResource("5_j5g4q")]
+[node name="plat3" parent="platforms" instance=ExtResource("8_01v6n")]
 position = Vector2(0, -94)
 
-[node name="plat4" parent="platforms" instance=ExtResource("8_pv563")]
+[node name="plat4" parent="platforms" instance=ExtResource("9_ci2wb")]
 position = Vector2(0, -157)
 
-[node name="plat5" parent="platforms" instance=ExtResource("10_jbgvg")]
+[node name="plat5" parent="platforms" instance=ExtResource("10_w36e5")]
 position = Vector2(0, -221)
 
-[node name="plat6" parent="platforms" instance=ExtResource("11_x2r7y")]
+[node name="plat6" parent="platforms" instance=ExtResource("11_w6k5w")]
 position = Vector2(0, -285)
 
-[node name="plat7" parent="platforms" instance=ExtResource("12_25lvk")]
+[node name="plat7" parent="platforms" instance=ExtResource("12_uf30i")]
 position = Vector2(0, -348)
 
 [node name="PlayerKillZone" type="Area2D" parent="."]
 position = Vector2(-22, 68)
 collision_mask = 2
-script = ExtResource("13_l0cwt")
+script = ExtResource("13_e7thm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerKillZone"]
 position = Vector2(21.5, 3)

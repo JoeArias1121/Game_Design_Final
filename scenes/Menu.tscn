@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://d347dkabofoo0"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_0cakx"]
+
+[node name="FailedScreen" type="CanvasLayer"]
+script = ExtResource("1_0cakx")
+
+[node name="end_of_game_screen" type="Node2D" parent="."]
+
+[node name="RestartButton" type="Button" parent="end_of_game_screen"]
+offset_left = 489.0
+offset_top = 372.0
+offset_right = 657.0
+offset_bottom = 425.0
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 178.0
+offset_top = 36.0
+offset_right = 376.0
+offset_bottom = 111.0
+scale = Vector2(4, 4)
+text = "Welcome to Retry. If you 
+die you have a chance to
+keep going. Stay UPP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="end_of_game_screen/RestartButton" to="." method="_on_restart_button_pressed"]
