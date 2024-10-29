@@ -1,3 +1,9 @@
+### 2024-10-26 - 4hr: Made global game manager
+* I created a global sscript that keeps track of all universal data in the game
+* Added sprites for pickups
+* Added mechanic of player being able to revive only if they have enough coins picked up
+* TODO: make coins generate and fall from top
+
 ### 2024-10-19 - 4hr: Fixed bugs in code and scenes
 * I created ui screens to make the game more user friendly
 * Added other game scene where there is a ghost as a character

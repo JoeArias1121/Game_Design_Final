@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhf25lumvxy81"]
+[gd_scene load_steps=3 format=3 uid="uid://bhf25lumvxy81"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_3snqj"]
+[ext_resource type="Script" path="res://scenes/end_game_score_display.gd" id="2_x8e15"]
 
 [node name="FailedScreen" type="CanvasLayer"]
 script = ExtResource("1_3snqj")
@@ -12,10 +13,11 @@ offset_left = 489.0
 offset_top = 372.0
 offset_right = 657.0
 offset_bottom = 425.0
-text = "Restart"
+text = "Menu"
 
 [node name="end_game_scoreDisplay" type="Node2D" parent="end_of_game_screen"]
 position = Vector2(189, 215)
+script = ExtResource("2_x8e15")
 
 [node name="Label" type="Label" parent="end_of_game_screen/end_game_scoreDisplay"]
 texture_filter = 1

@@ -195,10 +195,15 @@ script = ExtResource("1_3w8d4")
 script = ExtResource("2_4nbyl")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = -63.0
-offset_top = -31.0
-offset_right = 64.0
-offset_bottom = -5.0
+z_index = 10
+anchors_preset = -1
+anchor_left = -0.0555556
+anchor_right = -0.0555556
+offset_left = -203.0
+offset_top = -281.0
+offset_right = -75.9999
+offset_bottom = -255.0
+scale = Vector2(2, 2)
 text = "Lvl. 0"
 metadata/_edit_use_anchors_ = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dehtm5kxffydu"]
+[gd_scene load_steps=22 format=3 uid="uid://dehtm5kxffydu"]
 
 [ext_resource type="PackedScene" uid="uid://b578o30313ij5" path="res://scenes/Player.tscn" id="1_irlgg"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_tskeu"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b23crl4m66vgy" path="res://scenes/plat6.tscn" id="11_x2r7y"]
 [ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_25lvk"]
 [ext_resource type="Script" path="res://scenes/player_kill_zone.gd" id="13_l0cwt"]
+[ext_resource type="PackedScene" uid="uid://dj4xp04d2rpea" path="res://scenes/coin.tscn" id="14_0syk6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -195,10 +196,15 @@ script = ExtResource("1_tskeu")
 script = ExtResource("2_nbm6m")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = -63.0
-offset_top = -31.0
-offset_right = 64.0
-offset_bottom = -5.0
+z_index = 10
+anchors_preset = -1
+anchor_left = -0.0555556
+anchor_right = -0.0555556
+offset_left = -203.0
+offset_top = -281.0
+offset_right = -75.9999
+offset_bottom = -255.0
+scale = Vector2(2, 2)
 text = "Lvl. 0"
 metadata/_edit_use_anchors_ = true
 
@@ -274,6 +280,11 @@ script = ExtResource("13_l0cwt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerKillZone"]
 position = Vector2(21.5, 3)
 shape = SubResource("RectangleShape2D_r8qdf")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("14_0syk6")]
+position = Vector2(-158, -127)
 
 [connection signal="area_entered" from="Killzone" to="Killzone" method="_on_area_entered"]
 [connection signal="area_exited" from="Killzone" to="Killzone" method="_on_area_exited"]

@@ -1,6 +1,5 @@
 extends Node
 
-var lvl = 0
 @onready var score_label: Label = $ScoreLabel
 @onready var game: Node2D = $".."
 
@@ -20,8 +19,7 @@ var p12 = preload("res://scenes/plat12.tscn")
 var platforms = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
  
 func add_lvl():
-	lvl += 1
-	score_label.text = "Lvl."+ str(lvl)
+	score_label.text = "Lvl." + str(Global.addLevel())
 	var plat = platforms[randi() % 12].instantiate()
 	plat.position = Vector2(plat.position.x, -352)
 	add_child(plat)
