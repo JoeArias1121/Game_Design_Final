@@ -15,22 +15,28 @@ var p9 = preload("res://scenes/plat9.tscn")
 var p10 = preload("res://scenes/plat10.tscn")
 var p11 = preload("res://scenes/plat11.tscn")
 var p12 = preload("res://scenes/plat12.tscn")
-var co = preload("res://scenes/coin.tscn")
+var ro = preload("res://scenes/rock.tscn")
+var so = preload("res://scenes/soul_stone.tscn")
 
 var platforms = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
-
-func _ready() -> void:
-	score_label.text = "Lvl." + str(Global.lvl)
-	
+ 
 func add_lvl():
-	score_label.text = "Lvl." + str(Global.addLevel())
+	score_label.text = "Lvl." + str(Global.ghostAddLevel())
 	var plat = platforms[randi() % 12].instantiate()
-	if 50 > randi() % 100:
-		var coin = co.instantiate()
-		coin.position = Vector2(getX(),-382)
-		add_child(coin)
+	if 75 > randi() % 100:
+		var soul = so.instantiate()
+		soul.position = Vector2(getX(),-382)
+		add_child(soul)
 	plat.position = Vector2(plat.position.x, -352)
 	add_child(plat)
+
+func _physics_process(delta: float) -> void:
+	Global.rockTimer += delta
+	if Global.rockTimer >= Global.rockFreq:
+		var rock = ro.instantiate()
+		rock.position = Vector2(getX(),-382)
+		add_child(rock)
+		Global.rockTimer = 0
 	
 func getX():
 	var x = 256 - randi() % 512

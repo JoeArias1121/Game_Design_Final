@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dehtm5kxffydu"]
+[gd_scene load_steps=24 format=3 uid="uid://dehtm5kxffydu"]
 
 [ext_resource type="PackedScene" uid="uid://b578o30313ij5" path="res://scenes/Player.tscn" id="1_irlgg"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_tskeu"]
@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bx8jtyx2wv14n" path="res://scenes/plat5.tscn" id="10_jbgvg"]
 [ext_resource type="PackedScene" uid="uid://b23crl4m66vgy" path="res://scenes/plat6.tscn" id="11_x2r7y"]
 [ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_25lvk"]
-[ext_resource type="Script" path="res://scenes/player_kill_zone.gd" id="13_l0cwt"]
+[ext_resource type="Script" path="res://scenes/player_kill_zone.gd" id="13_yjvob"]
 [ext_resource type="PackedScene" uid="uid://dj4xp04d2rpea" path="res://scenes/coin.tscn" id="14_0syk6"]
+[ext_resource type="Script" path="res://scenes/coin_kill_zone.gd" id="15_kkkfu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -187,7 +188,10 @@ sources/0 = SubResource("TileSetAtlasSource_mp7ls")
 size = Vector2(537, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8qdf"]
-size = Vector2(541, 14)
+size = Vector2(541, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlnhe"]
+size = Vector2(537, 9)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tskeu")
@@ -273,9 +277,9 @@ position = Vector2(0, -285)
 position = Vector2(0, -348)
 
 [node name="PlayerKillZone" type="Area2D" parent="."]
-position = Vector2(-22, 68)
+position = Vector2(-22, 69)
 collision_mask = 2
-script = ExtResource("13_l0cwt")
+script = ExtResource("13_yjvob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerKillZone"]
 position = Vector2(21.5, 3)
@@ -284,9 +288,22 @@ shape = SubResource("RectangleShape2D_r8qdf")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("14_0syk6")]
-position = Vector2(-158, -127)
+position = Vector2(-158, -123)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("14_0syk6")]
+position = Vector2(243, -316)
+
+[node name="CoinKillZone" type="Area2D" parent="."]
+position = Vector2(-1, 106)
+collision_mask = 16
+script = ExtResource("15_kkkfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinKillZone"]
+position = Vector2(-1, 57)
+shape = SubResource("RectangleShape2D_nlnhe")
 
 [connection signal="area_entered" from="Killzone" to="Killzone" method="_on_area_entered"]
 [connection signal="area_exited" from="Killzone" to="Killzone" method="_on_area_exited"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="PlayerKillZone" to="PlayerKillZone" method="_on_body_entered"]
+[connection signal="area_entered" from="CoinKillZone" to="CoinKillZone" method="_on_area_entered"]

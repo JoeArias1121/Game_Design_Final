@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhf25lumvxy81"]
 
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_3snqj"]
+[ext_resource type="Script" path="res://scenes/failed_screen.gd" id="1_f4bde"]
 [ext_resource type="Script" path="res://scenes/end_game_score_display.gd" id="2_x8e15"]
 
 [node name="FailedScreen" type="CanvasLayer"]
-script = ExtResource("1_3snqj")
+script = ExtResource("1_f4bde")
 
 [node name="end_of_game_screen" type="Node2D" parent="."]
 

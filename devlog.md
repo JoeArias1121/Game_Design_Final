@@ -1,3 +1,8 @@
+### 2024-11-02 - 4.5hr: Made updates to global game manager
+* I made more UI screens to help players understand what is happening in the game
+* I made the game more difficult over time
+* Fixed minor errors in game like pickups not being counted for when player touched it
+
 ### 2024-10-26 - 4hr: Made global game manager
 * I created a global sscript that keeps track of all universal data in the game
 * Added sprites for pickups

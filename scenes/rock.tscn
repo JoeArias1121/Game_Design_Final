@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0mjqi8crfj37"]
+
+[ext_resource type="Texture2D" uid="uid://dvg44dw1irxv1" path="res://assets/Boulder/Boulder.png" id="1_7uepg"]
+[ext_resource type="Script" path="res://scenes/rock.gd" id="1_m3ya4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atux8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7uepg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ql00t"]
+radius = 13.3291
+
+[node name="Rock" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_m3ya4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_atux8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(1.05033, 1.10092)
+shape = SubResource("CircleShape2D_ql00t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

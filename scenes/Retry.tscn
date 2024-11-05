@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://e04poe4sb3a2"]
+[gd_scene load_steps=23 format=3 uid="uid://e04poe4sb3a2"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3w8d4"]
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_4nbyl"]
+[ext_resource type="Script" path="res://scenes/game_manager_retry.gd" id="2_6fysn"]
 [ext_resource type="PackedScene" uid="uid://d2ruoxbs8opce" path="res://scenes/Ghost.tscn" id="3_fv0rl"]
 [ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="4_qfbo8"]
-[ext_resource type="Script" path="res://scenes/killzone.gd" id="5_cae3a"]
+[ext_resource type="Script" path="res://scenes/ghost_plat_kill_zone.gd" id="5_v80ye"]
 [ext_resource type="PackedScene" uid="uid://brxfawvccru6q" path="res://scenes/plat1.tscn" id="6_3h4jt"]
 [ext_resource type="PackedScene" uid="uid://c7otj3lqfk7rw" path="res://scenes/plat2.tscn" id="7_p7ll8"]
 [ext_resource type="PackedScene" uid="uid://6uyc45t8in1w" path="res://scenes/plat3.tscn" id="8_01v6n"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b23crl4m66vgy" path="res://scenes/plat6.tscn" id="11_w6k5w"]
 [ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_uf30i"]
 [ext_resource type="Script" path="res://scenes/ghost_kill_zone.gd" id="13_e7thm"]
+[ext_resource type="Script" path="res://scenes/coin_kill_zone.gd" id="14_csp0l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -188,11 +189,14 @@ size = Vector2(537, 69)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8qdf"]
 size = Vector2(541, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15tbl"]
+size = Vector2(537, 9)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3w8d4")
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("2_4nbyl")
+script = ExtResource("2_6fysn")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
 z_index = 10
@@ -240,11 +244,11 @@ tile_set = SubResource("TileSet_u120u")
 format = 2
 layer_0/tile_data = PackedInt32Array(-262153, 524288, 0, -196617, 524288, 0, -131081, 524288, 0, -65545, 524288, 0, -9, 524288, 0, 65527, 524288, 0, 131063, 524288, 0, 196599, 524288, 0, 262135, 524288, 0, 327671, 524288, 0, -327689, 524288, 0, -393225, 524288, 0, -458761, 524288, 0, -524297, 524288, 0, -589833, 524288, 0, -655369, 524288, 0, -720905, 524288, 0, -786441, 524288, 0, -851977, 524288, 0, -917513, 524288, 0, -983049, 524288, 0, -1048585, 524288, 0, -1114121, 524288, 0, -1179657, 524288, 0, -1245193, 524288, 0, -1310729, 524288, 0, 262170, 524288, 0, 196634, 524288, 0, 131098, 524288, 0, 65562, 524288, 0, 26, 524288, 0, -65510, 524288, 0, -262118, 524288, 0, -196582, 524288, 0, -131046, 524288, 0, -327654, 524288, 0, -393190, 524288, 0, -458726, 524288, 0, -524262, 524288, 0, -589798, 524288, 0, -655334, 524288, 0, -720870, 524288, 0, -786406, 524288, 0, -851942, 524288, 0, -917478, 524288, 0, -983014, 524288, 0, -1048550, 524288, 0, -1114086, 524288, 0, -1179622, 524288, 0, -1245158, 524288, 0, -1310694, 524288, 0, -1376230, 524288, 0, 393207, 524288, 0, 327706, 524288, 0, 393242, 524288, 0, 458743, 524288, 0, 524279, 524288, 0, 458778, 524288, 0)
 
-[node name="Killzone" type="Area2D" parent="."]
+[node name="ghostPlatKillZone" type="Area2D" parent="."]
 position = Vector2(0, 100)
-script = ExtResource("5_cae3a")
+script = ExtResource("5_v80ye")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ghostPlatKillZone"]
 position = Vector2(-0.5, 19)
 shape = SubResource("RectangleShape2D_fdlie")
 
@@ -280,7 +284,17 @@ script = ExtResource("13_e7thm")
 position = Vector2(21.5, 3)
 shape = SubResource("RectangleShape2D_r8qdf")
 
-[connection signal="area_entered" from="Killzone" to="Killzone" method="_on_area_entered"]
-[connection signal="area_exited" from="Killzone" to="Killzone" method="_on_area_exited"]
-[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[node name="SoulStoneKillZone" type="Area2D" parent="."]
+position = Vector2(-1, 106)
+collision_mask = 16
+script = ExtResource("14_csp0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoulStoneKillZone"]
+position = Vector2(-1, 57)
+shape = SubResource("RectangleShape2D_15tbl")
+
+[connection signal="area_entered" from="ghostPlatKillZone" to="ghostPlatKillZone" method="_on_area_entered"]
+[connection signal="area_exited" from="ghostPlatKillZone" to="ghostPlatKillZone" method="_on_area_exited"]
+[connection signal="body_entered" from="ghostPlatKillZone" to="ghostPlatKillZone" method="_on_body_entered"]
 [connection signal="body_entered" from="PlayerKillZone" to="PlayerKillZone" method="_on_body_entered"]
+[connection signal="area_entered" from="SoulStoneKillZone" to="SoulStoneKillZone" method="_on_area_entered"]
