@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dehtm5kxffydu"]
+[gd_scene load_steps=26 format=3 uid="uid://dehtm5kxffydu"]
 
+[ext_resource type="Script" path="res://scenes/game1.gd" id="1_2jvd2"]
 [ext_resource type="PackedScene" uid="uid://b578o30313ij5" path="res://scenes/Player.tscn" id="1_irlgg"]
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_tskeu"]
 [ext_resource type="Texture2D" uid="uid://r0gw42tlyeq8" path="res://assets/world_tileset.png" id="2_ga81e"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_nbm6m"]
 [ext_resource type="PackedScene" uid="uid://brxfawvccru6q" path="res://scenes/plat1.tscn" id="3_25bk4"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://scenes/player_kill_zone.gd" id="13_yjvob"]
 [ext_resource type="PackedScene" uid="uid://dj4xp04d2rpea" path="res://scenes/coin.tscn" id="14_0syk6"]
 [ext_resource type="Script" path="res://scenes/coin_kill_zone.gd" id="15_kkkfu"]
+[ext_resource type="Texture2D" uid="uid://brdvvapjrq0yp" path="res://assets/nature 2/origbig.png" id="16_7dsn5"]
+[ext_resource type="AudioStream" uid="uid://ke2ibc1q10pt" path="res://assets/music/video-game-boss-fiight-259885.mp3" id="17_83m2v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -194,12 +196,13 @@ size = Vector2(541, 15.5)
 size = Vector2(537, 9)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_tskeu")
+script = ExtResource("1_2jvd2")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_nbm6m")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
+modulate = Color(0.874141, 0.0289097, 4.81307e-07, 1)
 z_index = 10
 anchors_preset = -1
 anchor_left = -0.0555556
@@ -210,6 +213,17 @@ offset_right = -75.9999
 offset_bottom = -255.0
 scale = Vector2(2, 2)
 text = "Lvl. 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinAmount" type="Label" parent="GameManager"]
+modulate = Color(1, 0, 0, 1)
+z_index = 10
+offset_left = 122.0
+offset_top = -281.0
+offset_right = 183.0
+offset_bottom = -258.0
+scale = Vector2(2, 2)
+text = "Coins: 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_irlgg")]
@@ -301,6 +315,18 @@ script = ExtResource("15_kkkfu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinKillZone"]
 position = Vector2(-1, 57)
 shape = SubResource("RectangleShape2D_nlnhe")
+
+[node name="Origbig" type="Sprite2D" parent="."]
+process_mode = 3
+z_index = -1
+position = Vector2(4, -52)
+scale = Vector2(0.273926, 0.344039)
+texture = ExtResource("16_7dsn5")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_83m2v")
+autoplay = true
+parameters/looping = false
 
 [connection signal="area_entered" from="Killzone" to="Killzone" method="_on_area_entered"]
 [connection signal="area_exited" from="Killzone" to="Killzone" method="_on_area_exited"]

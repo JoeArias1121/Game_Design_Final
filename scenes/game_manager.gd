@@ -1,7 +1,7 @@
 extends Node
 
 @onready var score_label: Label = $ScoreLabel
-@onready var game: Node2D = $".."
+@onready var coin_amount: Label = $CoinAmount
 
 var p1 = preload("res://scenes/plat1.tscn")
 var p2 = preload("res://scenes/plat2.tscn")
@@ -21,6 +21,7 @@ var platforms = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
 
 func _ready() -> void:
 	score_label.text = "Lvl." + str(Global.lvl)
+	coin_amount.text = "Coins: " + str(Global.coins)
 	
 func add_lvl():
 	score_label.text = "Lvl." + str(Global.addLevel())

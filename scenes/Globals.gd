@@ -1,9 +1,10 @@
 extends Node
 #Global
 var difficulty = 0
+var reviveStrain = 1
 var lvl = 0
 var ghostLvl = 0
-var rockFreq = 1.5
+var rockFreq = .75
 var rockTimer = 0.0
 var coins = 0
 var souls = 0
@@ -21,6 +22,8 @@ func addCoin():
 
 func ghostAddLevel():
 	ghostLvl += 1
+	if ghostLvl >= 15:
+		ghostDied()
 	platVelo.y = veloConst + 1.5 * ghostLvl
 	return ghostLvl
 
@@ -41,10 +44,11 @@ func playerDied():
 		get_tree().change_scene_to_file("res://scenes/FailedScreen.tscn")
 		
 func ghostDied():
-	if souls >= 0:
+	if souls >= 5:
 		print("You have enough souls")
 		lvl += 5
-		difficulty = 5
+		reviveStrain += 1
+		difficulty = 5 * reviveStrain
 		get_tree().change_scene_to_file("res://scenes/RetryInfo.tscn")
 	else:
 		print("Player deleted")
@@ -56,6 +60,7 @@ func ghostDied():
 		
 func resetGame():
 	difficulty = 0
+	reviveStrain = 0
 	lvl = 0
 	coins = 0
 	platVelo.y = 16

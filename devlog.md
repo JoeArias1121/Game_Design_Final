@@ -1,3 +1,13 @@
+### 2024-11-16 - 4hr: Added sound effects and background music, also added background images
+* Added background to the levels
+* Added sounds effects to the game and gave it background music depending on the level
+* Playtested it more to see how enjoyable and engaging it was while seeing if everything was working
+
+### 2024-11-9 - 4hr: Added acceleration to the player and increased difficulty of ghost level
+* Playtested and looked for how to make the game more engaging
+* Added ability for player to get faster the more time spent moving one direction
+* Increased the frequency of the rocks that come down to hit the player
+
 ### 2024-11-02 - 4.5hr: Made updates to global game manager
 * I made more UI screens to help players understand what is happening in the game
 * I made the game more difficult over time

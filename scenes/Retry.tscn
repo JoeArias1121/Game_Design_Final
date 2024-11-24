@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://e04poe4sb3a2"]
+[gd_scene load_steps=26 format=3 uid="uid://e04poe4sb3a2"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3w8d4"]
 [ext_resource type="Script" path="res://scenes/game_manager_retry.gd" id="2_6fysn"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://dcix3owolqad7" path="res://scenes/plat7.tscn" id="12_uf30i"]
 [ext_resource type="Script" path="res://scenes/ghost_kill_zone.gd" id="13_e7thm"]
 [ext_resource type="Script" path="res://scenes/coin_kill_zone.gd" id="14_csp0l"]
+[ext_resource type="PackedScene" uid="uid://b8fh33vyhgak5" path="res://scenes/soul_stone.tscn" id="15_546d6"]
+[ext_resource type="Texture2D" uid="uid://dbqxp7bf23hef" path="res://assets/nature 3/origbig.png" id="16_250if"]
+[ext_resource type="AudioStream" uid="uid://bn28b2hyfs2o6" path="res://assets/music/soulsweeper-252499.mp3" id="17_gb028"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d4l8v"]
 distance = -11.0
@@ -199,6 +202,7 @@ script = ExtResource("1_3w8d4")
 script = ExtResource("2_6fysn")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
+modulate = Color(0, 0, 0, 1)
 z_index = 10
 anchors_preset = -1
 anchor_left = -0.0555556
@@ -210,6 +214,16 @@ offset_bottom = -255.0
 scale = Vector2(2, 2)
 text = "Lvl. 0"
 metadata/_edit_use_anchors_ = true
+
+[node name="SoulAmount" type="Label" parent="GameManager"]
+modulate = Color(0, 0, 0, 1)
+z_index = 10
+offset_left = 122.0
+offset_top = -281.0
+offset_right = 183.0
+offset_bottom = -258.0
+scale = Vector2(2, 2)
+text = "Souls: 0"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -112)
@@ -292,6 +306,23 @@ script = ExtResource("14_csp0l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoulStoneKillZone"]
 position = Vector2(-1, 57)
 shape = SubResource("RectangleShape2D_15tbl")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="SoulStone" parent="Node" instance=ExtResource("15_546d6")]
+position = Vector2(-61, -257)
+
+[node name="Origbig" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2, -55)
+scale = Vector2(0.288656, 0.383421)
+texture = ExtResource("16_250if")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("17_gb028")
+autoplay = true
+parameters/looping = false
 
 [connection signal="area_entered" from="ghostPlatKillZone" to="ghostPlatKillZone" method="_on_area_entered"]
 [connection signal="area_exited" from="ghostPlatKillZone" to="ghostPlatKillZone" method="_on_area_exited"]

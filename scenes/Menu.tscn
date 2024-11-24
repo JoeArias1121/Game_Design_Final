@@ -15,13 +15,13 @@ offset_bottom = 425.0
 text = "Start"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 178.0
-offset_top = 36.0
-offset_right = 376.0
-offset_bottom = 111.0
+offset_left = -56.0
+offset_top = 30.0
+offset_right = 267.0
+offset_bottom = 105.0
 scale = Vector2(4, 4)
-text = "Welcome to Retry. If you 
-die you have a chance to
+text = "Welcome to Retry. If you die and
+have 5 coins you have a chance to
 keep going. Stay UPP!"
 horizontal_alignment = 1
 vertical_alignment = 1

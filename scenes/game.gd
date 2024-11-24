@@ -4,6 +4,7 @@ extends Node2D
 @onready var p2: TileMap = $platforms/plat2
 @onready var p3: TileMap = $platforms/plat3
 @onready var p4: TileMap = $platforms/plat4
+@onready var soul_amount: Label = $GameManager/SoulAmount
 
 var platforms = [p1,p2,p3,p4]
 
@@ -14,6 +15,7 @@ func genPlat() -> void:
 	pass
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	soul_amount.text = "Souls: " + str(Global.souls)
 	pass # Replace with function body.
 
 func _on_killzone_body_entered(body: Node2D) -> void:

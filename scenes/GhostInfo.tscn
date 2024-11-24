@@ -21,7 +21,7 @@ offset_right = 478.0
 offset_bottom = 154.0
 scale = Vector2(3, 3)
 text = "Since you collected enough coins
-you now get to collect souls
+you now get to collect 5 souls
 to revive yourself.
 You only got until lvl 15 
 or it's OVER!"
