@@ -1,3 +1,7 @@
+### 2024-11-23 - 1hr: Added ui controls for controllers
+* Made it so players can just use arrows to select and press button, no mouse needed
+* added the select and press button functionality to controllers as well
+
 ### 2024-11-16 - 4hr: Added sound effects and background music, also added background images
 * Added background to the levels
 * Added sounds effects to the game and gave it background music depending on the level

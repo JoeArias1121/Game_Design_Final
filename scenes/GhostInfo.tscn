@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcfotq6i32bly"]
+[gd_scene load_steps=3 format=3 uid="uid://dcfotq6i32bly"]
 
 [ext_resource type="Script" path="res://scenes/ghost_info.gd" id="1_i7gg5"]
+[ext_resource type="Script" path="res://scenes/go.gd" id="2_4vf18"]
 
 [node name="GhostInfo" type="CanvasLayer"]
 script = ExtResource("1_i7gg5")
@@ -13,6 +14,7 @@ offset_top = 489.0
 offset_right = 677.0
 offset_bottom = 542.0
 text = "Go"
+script = ExtResource("2_4vf18")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 224.0

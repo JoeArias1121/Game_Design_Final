@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbu3af2fyshh2"]
+[gd_scene load_steps=4 format=3 uid="uid://dbu3af2fyshh2"]
 
 [ext_resource type="Script" path="res://scenes/death_screen.gd" id="1_a6rxg"]
+[ext_resource type="Script" path="res://scenes/retry.gd" id="2_chypa"]
 [ext_resource type="Script" path="res://scenes/end_game_score_display.gd" id="2_d3vi2"]
 
 [node name="DeathScreen" type="CanvasLayer"]
@@ -8,19 +9,21 @@ script = ExtResource("1_a6rxg")
 
 [node name="end_of_game_screen" type="Node2D" parent="."]
 
-[node name="RestartButton" type="Button" parent="end_of_game_screen"]
-offset_left = 487.0
-offset_top = 422.0
-offset_right = 655.0
-offset_bottom = 475.0
+[node name="VBoxContainer" type="VBoxContainer" parent="end_of_game_screen"]
+offset_left = 517.0
+offset_top = 365.0
+offset_right = 576.0
+offset_bottom = 431.0
+scale = Vector2(2, 2)
+
+[node name="RestartButton" type="Button" parent="end_of_game_screen/VBoxContainer"]
+layout_mode = 2
 text = "Menu"
 
-[node name="Retry" type="Button" parent="end_of_game_screen"]
-offset_left = 485.0
-offset_top = 354.0
-offset_right = 653.0
-offset_bottom = 407.0
+[node name="Retry" type="Button" parent="end_of_game_screen/VBoxContainer"]
+layout_mode = 2
 text = "Revive"
+script = ExtResource("2_chypa")
 
 [node name="end_game_scoreDisplay" type="Node2D" parent="end_of_game_screen"]
 position = Vector2(189, 215)
@@ -46,5 +49,5 @@ offset_bottom = 77.0
 scale = Vector2(5, 5)
 text = "You died! Your score was:"
 
-[connection signal="pressed" from="end_of_game_screen/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="end_of_game_screen/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="end_of_game_screen/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="end_of_game_screen/VBoxContainer/Retry" to="." method="_on_retry_pressed"]

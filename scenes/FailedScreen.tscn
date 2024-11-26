@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhf25lumvxy81"]
+[gd_scene load_steps=4 format=3 uid="uid://bhf25lumvxy81"]
 
 [ext_resource type="Script" path="res://scenes/failed_screen.gd" id="1_f4bde"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="2_i3edo"]
 [ext_resource type="Script" path="res://scenes/end_game_score_display.gd" id="2_x8e15"]
 
 [node name="FailedScreen" type="CanvasLayer"]
@@ -8,12 +9,13 @@ script = ExtResource("1_f4bde")
 
 [node name="end_of_game_screen" type="Node2D" parent="."]
 
-[node name="RestartButton" type="Button" parent="end_of_game_screen"]
+[node name="Menu" type="Button" parent="end_of_game_screen"]
 offset_left = 489.0
 offset_top = 372.0
 offset_right = 657.0
 offset_bottom = 425.0
 text = "Menu"
+script = ExtResource("2_i3edo")
 
 [node name="end_game_scoreDisplay" type="Node2D" parent="end_of_game_screen"]
 position = Vector2(189, 215)
@@ -38,4 +40,4 @@ offset_bottom = 77.0
 scale = Vector2(5, 5)
 text = "You died! Your score was:"
 
-[connection signal="pressed" from="end_of_game_screen/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="end_of_game_screen/Menu" to="." method="_on_restart_button_pressed"]
