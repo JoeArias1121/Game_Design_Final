@@ -1,3 +1,6 @@
+### 2024-11-30 - .5hr: Made the game start in fullscreen
+* Made the game start up in fullscreen to make it easier to play
+
 ### 2024-11-23 - 1hr: Added ui controls for controllers
 * Made it so players can just use arrows to select and press button, no mouse needed
 * added the select and press button functionality to controllers as well
