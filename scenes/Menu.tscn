@@ -28,4 +28,23 @@ keep going. Stay UPP!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 0, 1)
+offset_left = 249.0
+offset_top = 569.0
+offset_right = 985.0
+offset_bottom = 618.0
+text = "Controller: Left and right on joystick to move left and right. 'A' is to jump and 'X' to press button
+Keyboard: A & left arrow to move left, D and right arrow to move right, spacebar to jump"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 421.0
+offset_top = 507.0
+offset_right = 736.0
+offset_bottom = 530.0
+text = "You can spam the jump button infinitely "
+horizontal_alignment = 1
+
 [connection signal="pressed" from="end_of_game_screen/Start" to="." method="_on_restart_button_pressed"]

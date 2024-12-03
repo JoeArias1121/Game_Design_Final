@@ -1,3 +1,7 @@
+### 2024-12-02 - .5hr: Made the game start in fullscreen
+* Added some text to improve first time user experience
+* Changed the button on the controller that presses the button so user does not click on it by mistake
+
 ### 2024-11-30 - .5hr: Made the game start in fullscreen
 * Made the game start up in fullscreen to make it easier to play
 
