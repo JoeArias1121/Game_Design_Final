@@ -1,4 +1,4 @@
-### 2024-12-02 - .5hr: Made the game start in fullscreen
+### 2024-12-02 - .5hr: Added button to work as "accept"
 * Added some text to improve first time user experience
 * Changed the button on the controller that presses the button so user does not click on it by mistake
 
